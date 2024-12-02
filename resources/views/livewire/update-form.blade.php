@@ -1,6 +1,17 @@
-<div>
-  <form wire:submit.prevent="submit" class="space-y-4 bg-white p-6 rounded-lg shadow-md">
-    <label for="squad" class="block text-gray-700">Squad:</label>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-10">
+  <form wire:submit.prevent="submit" class="space-y-6 bg-white p-6 rounded-lg shadow-md">
+    <label for="week_number" class="block text-gray-700 font-medium mb-2">Week Number:</label>
+<input
+    type="number"
+    id="week_number"
+    wire:model="week_number"
+    class="block w-32 border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800"
+    placeholder="e.g., 42"
+/>
+
+
+
+    <label for="squad" class="block text-gray-700 space-y-4">Squad:</label>
     <select id="squad" wire:model="squad" class="block w-full border-gray-300 rounded-md shadow-sm">
         <option value="">Select Squad</option>
         @foreach($squadList as $squad)
@@ -9,26 +20,55 @@
     </select>
 
     <label for="projects_deployed" class="block text-gray-700">Projects Deployed:</label>
-    <textarea id="projects_deployed" wire:model="projects_deployed" class="block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    <textarea
+    wire:model="projects_deployed"
+    class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
+    rows="1"
+    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
+    placeholder="Type your updates here..."
+    ></textarea>
 
     <label for="projects_sit" class="block text-gray-700">Projects in SIT:</label>
-    <textarea id="projects_sit" wire:model="projects_sit"class="block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    <textarea id="projects_sit"
+     wire:model="projects_sit"
+     class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
+     rows="1"
+     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
+     placeholder="Type your updates here..."
+   </textarea>
 
     <label for="projects_uat" class="block text-gray-700">Projects in UAT:</label>
-    <textarea id="projects_uat" wire:model="projects_uat"class="block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    <textarea id="projects_uat"
+    wire:model="projects_uat"
+    class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
+    rows="1"
+    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
+    placeholder="Type your updates here..."
+    ></textarea>
 
     <label for="incidents" class="block text-gray-700">Incidents:</label>
-    <textarea id="incidents" wire:model="incidents"class="block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    <textarea id="incidents"
+    wire:model="incidents"
+    class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
+    rows="1"
+    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
+    placeholder="Type your updates here..."
+    ></textarea>
 
     <label for="other_updates" class="block text-gray-700">Other Updates:</label>
-    <textarea id="other_updates" wire:model="other_updates"class="block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+    <textarea id="other_updates" wire:model="other_updates"
+    class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
+    rows="1"
+    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
+    placeholder="Type your updates here..."
+    ></textarea>
 
-    <label for="week_number">Week Number:</label>
-    <input type="number" id="week_number" wire:model="week_number">
-
-    <button type="submit" class=" py-2 bg-blue-200 rounded-md hover:bg-blue-600">Submit</button>
+    <button
+        type="submit"
+        class="px-6 py-2 bg-blue-500 font-semibold rounded-md shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:outline-none transition ease-in-out duration-150">
+        Submit
+    </button>
 </form>
-
 
     @if(session()->has('message'))
         <div>{{ session('message') }}</div>

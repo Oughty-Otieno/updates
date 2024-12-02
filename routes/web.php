@@ -30,5 +30,5 @@ Route::middleware([
 });
 
 
-Route::get('/update-form', UpdateForm::class);
-Route::get('/update-display', UpdateDisplay::class);
+Route::get('/update-form', UpdateForm::class)->name('update-form');;
+Route::get('/update-display', UpdateDisplay::class)->name('update-display');;

@@ -14,12 +14,13 @@ class UpdateDisplay extends Component
     {
 
         $this->updates = Update::where('week_number', $this->week_number)->get();
-        //dd($this->updates);
     }
 
     public function render()
     {
+        //$this->week_number = date('W'); // ISO-8601 week number of the year
         return view('livewire.update-display', ['updates' => $this->updates])
         ->layout('layouts.app');
+
     }
 }

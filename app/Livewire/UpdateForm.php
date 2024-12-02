@@ -16,6 +16,7 @@ class UpdateForm extends Component
 
   public $squadList = ['Squad A', 'Squad B', 'Squad C']; // Populate with actual squads
 
+
   protected $rules = [
       'squad' => 'required|string',
       'projects_deployed' => 'nullable|string',
@@ -31,13 +32,14 @@ class UpdateForm extends Component
 
       $validatedData = $this->validate();
       Update::create($validatedData);
-      dd("am here");
       session()->flash('message', 'Update recorded successfully!');
       $this->reset();
   }
 
   public function render()
   {
+    // Calculate the current week number
+      $this->week_number = date('W'); // ISO-8601 week number of the year
       return view('livewire.update-form')
       ->layout('layouts.app');
   }
