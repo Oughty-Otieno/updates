@@ -19,10 +19,10 @@ class UpdateForm extends Component
 
   protected $rules = [
       'squad' => 'required|string',
-      'projects_deployed' => 'nullable|string',
-      'projects_sit' => 'nullable|string',
-      'projects_uat' => 'nullable|string',
-      'incidents' => 'nullable|string',
+      'projects_deployed' => 'required|string',
+      'projects_sit' => 'required|string',
+      'projects_uat' => 'required|string',
+      'incidents' => 'required|string',
       'other_updates' => 'nullable|string',
       'week_number' => 'required|integer',
   ];

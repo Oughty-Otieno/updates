@@ -8,6 +8,9 @@
     class="block w-32 border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800"
     placeholder="e.g., 42"
 />
+@error('week_number')
+    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+@enderror
 
 
 
@@ -18,16 +21,21 @@
             <option value="{{ $squad }}">{{ $squad }}</option>
         @endforeach
     </select>
+    @error('squad')
+    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
 
     <label for="projects_deployed" class="block text-gray-700">Projects Deployed:</label>
-    <textarea
+    <textarea id="projects_deployed"
     wire:model="projects_deployed"
     class="block w-full border-gray-300 rounded-md shadow-sm p-2 resize-none overflow-hidden focus:ring-blue-500 focus:border-blue-500"
     rows="1"
     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
     placeholder="Type your updates here..."
     ></textarea>
-
+    @error('projects_deployed')
+        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
     <label for="projects_sit" class="block text-gray-700">Projects in SIT:</label>
     <textarea id="projects_sit"
      wire:model="projects_sit"
@@ -36,6 +44,9 @@
      oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
      placeholder="Type your updates here..."
    </textarea>
+   @error('projects_sit')
+   <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+   @enderror
 
     <label for="projects_uat" class="block text-gray-700">Projects in UAT:</label>
     <textarea id="projects_uat"
@@ -45,6 +56,9 @@
     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
     placeholder="Type your updates here..."
     ></textarea>
+    @error('projects_sit')
+    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
 
     <label for="incidents" class="block text-gray-700">Incidents:</label>
     <textarea id="incidents"
@@ -54,6 +68,9 @@
     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
     placeholder="Type your updates here..."
     ></textarea>
+    @error('incidents')
+    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
 
     <label for="other_updates" class="block text-gray-700">Other Updates:</label>
     <textarea id="other_updates" wire:model="other_updates"
@@ -62,6 +79,9 @@
     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"
     placeholder="Type your updates here..."
     ></textarea>
+    @error('other_updates')
+    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+    @enderror
 
     <button
         type="submit"
