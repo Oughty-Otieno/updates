@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\UpdateForm;
+use App\Livewire\UpdateDisplay;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/update-form', UpdateForm::class);
+Route::get('/update-display', UpdateDisplay::class);
