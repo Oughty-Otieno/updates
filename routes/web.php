@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UpdateForm;
 use App\Livewire\UpdateDisplay;
+use App\Http\Controllers\UpdatesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,6 @@ Route::middleware([
 });
 
 
-Route::get('/update-form', UpdateForm::class)->name('update-form');;
-Route::get('/update-display', UpdateDisplay::class)->name('update-display');;
+Route::get('/update-form', UpdateForm::class)->name('update-form');
+Route::get('/update-display', UpdateDisplay::class)->name('update-display');
+Route::resource('/updates', UpdatesController::class);
