@@ -13,6 +13,7 @@
                             <tr class="bg-gray-100">
                                 <th class="px-4 py-2 border border-gray-300">Squad Name</th>
                                 <th class="px-4 py-2 border border-gray-300 text-center">Resident QE</th>
+                                <th class="px-4 py-2 border border-gray-300 text-center">Date</th>
                                 <th class="px-4 py-2 border border-gray-300 text-center">Actions</th>
                             </tr>
                         </thead>
@@ -21,24 +22,32 @@
                                 <tr>
                                     <td class="px-4 py-2 border border-gray-300">{{ $update->squad}}</td>
                                     <td class="px-4 py-2 border border-gray-300"></td>
-                                    <td class="px-4 py-2 border border-gray-300 text-center">
-                                        <!-- Action Buttons -->
+                                    <td class="px-4 py-2 border border-gray-300"></td>
+                                    <td class="px-42 py-2 border border-gray-300">
+
                                         <!-- <button
                                             wire:click="viewUpdate({{ $update->id }})"
                                             class="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-150">
-                                            href="{{ route('updates.edit',['id'=>$update->id]}}"
+
                                             View
                                         </button> -->
-                                        <button
-
+                                        <div class="flex space-x-4">
+                                        <a
+                                            href="{{ route('updates.edit', $update->id) }}"
                                             class="px-4 py-1 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-150">
                                             Edit
-                                        </button>
-                                        <!-- <button
-                                            wire:click="deleteUpdate({{ $update->id }})"
-                                            class="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-150">
-                                            Delete
-                                        </button> -->
+                                        </a>
+
+                                        <form action="{{ route('updates.destroy', $update->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this update?');">
+                                                       @csrf
+                                                       @method('DELETE')
+                                                       <button
+                                                           type="submit"
+                                                           class="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-150">
+                                                           Delete
+                                                       </button>
+                                        </form>
+                                      </div>
                                     </td>
                                 </tr>
                             @endforeach

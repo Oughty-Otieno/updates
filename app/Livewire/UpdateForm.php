@@ -14,7 +14,17 @@ class UpdateForm extends Component
   public $other_updates;
   public $week_number;
 
-  public $squadList = ['Squad A', 'Squad B', 'Squad C']; // Populate with actual squads
+  public $squadList = [
+  'BFSI',
+  'IoT/Integrated Solutions',
+  'Digital Business Hub',
+  'Network Automation',
+  'Base Solution',
+  'Fixed Data COE',
+  'Home Base Growth',
+  'Home Convergence and Experience',
+  'Falcon/Mocha'
+]; // Populate with actual squads
 
 
   protected $rules = [
